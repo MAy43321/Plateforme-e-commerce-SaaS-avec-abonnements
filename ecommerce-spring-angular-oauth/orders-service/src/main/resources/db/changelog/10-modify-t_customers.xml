@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet id="1" author="Aziz" >
+        <addUniqueConstraint tableName="t_customers" columnNames="email" constraintName="uq_email"/>
+    </changeSet>
+    <!-- No need for first and last name. This can be easily retrieved through /userinfo aka token introspection-->
+    <changeSet id="2" author="Aziz">
+        <dropColumn tableName="t_customers" columnName="first_name" />
+    </changeSet>
+
+
+    <changeSet id="3" author="Aziz">
+
+        <dropColumn tableName="t_customers" columnName="last_name" />
+    </changeSet>
+
+</databaseChangeLog>
